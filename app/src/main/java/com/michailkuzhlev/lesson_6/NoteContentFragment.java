@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -46,5 +47,12 @@ public class NoteContentFragment extends Fragment {
         ImageView imageView = view.findViewById(R.id.imageView);
         TypedArray images = getResources().obtainTypedArray(R.array.notes_content);
         imageView.setImageResource(images.getResourceId(notes.getIndex(),R.drawable.note1));
+
+        ((Button)view.findViewById(R.id.btn_Back)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requireActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
     }
 }
