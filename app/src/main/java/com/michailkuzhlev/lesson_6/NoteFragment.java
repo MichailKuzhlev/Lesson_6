@@ -15,7 +15,8 @@ import android.widget.TextView;
 
 
 public class NoteFragment extends Fragment {
-
+    public static final String CURRENT_NOTES = "notes_current";
+    private Notes currentNotes;
     public static NoteFragment newInstance() {
         NoteFragment fragment = new NoteFragment();
         return fragment;
@@ -29,8 +30,23 @@ public class NoteFragment extends Fragment {
     }
 
     @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(CURRENT_NOTES, currentNotes);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        if (savedInstanceState!=null){
+            currentNotes = savedInstanceState.getParcelable(CURRENT_NOTES);
+        }else {
+            currentNotes = new Notes(0);
+        }
+        if (getResources().getConfiguration().orientation== Configuration.ORIENTATION_LANDSCAPE){
+            ShowLand(currentNotes);
+        }
+
         initView(view);
     }
     private void initView (View view){
