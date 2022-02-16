@@ -3,23 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="@color/teal_200"
     android:orientation="vertical"
-    android:layout_gravity="center"
     tools:context=".NoteFragment">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
         android:layout_gravity="center" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/back"
-        android:id="@+id/btn_Back"/>
+        android:text="@string/back" />
 
 
 </LinearLayout>

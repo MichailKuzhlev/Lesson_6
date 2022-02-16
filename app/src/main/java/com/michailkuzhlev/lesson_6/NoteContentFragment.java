@@ -3,6 +3,7 @@ package com.michailkuzhlev.lesson_6;
 import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import java.util.List;
 
 
 public class NoteContentFragment extends Fragment {
@@ -52,6 +56,14 @@ public class NoteContentFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 requireActivity().getSupportFragmentManager().popBackStack();
+                FragmentManager fragmentManager =  requireActivity().getSupportFragmentManager();
+                List<Fragment>list=fragmentManager.getFragments();
+                for (Fragment one:list) {
+                    if (one instanceof NoteContentFragment){
+                        requireActivity().getSupportFragmentManager().beginTransaction().remove(one).commit();
+                    }
+
+                }
             }
         });
     }

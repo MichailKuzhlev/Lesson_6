@@ -64,6 +64,7 @@ public class NoteFragment extends Fragment {
                     Notes notes = new Notes(finalI);
                     if (getResources().getConfiguration().orientation== Configuration.ORIENTATION_LANDSCAPE){
                         ShowLand(notes);
+
                     }else {ShowPort(notes);
                     }
 
@@ -73,11 +74,11 @@ public class NoteFragment extends Fragment {
     }
     private void ShowLand (Notes notes){
         NoteContentFragment noteContentFragment = NoteContentFragment.newInstance(notes);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.note_content,noteContentFragment).commit();
+        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.note_content,noteContentFragment).commit();
 
     }
     private void ShowPort (Notes notes){
         NoteContentFragment noteContentFragment = NoteContentFragment.newInstance(notes);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes,noteContentFragment).addToBackStack("").commit();
+        getActivity().getSupportFragmentManager().beginTransaction().add(R.id.notes,noteContentFragment).addToBackStack("").commit();
     }
 }
