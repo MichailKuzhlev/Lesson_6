@@ -18,7 +18,6 @@ public class NoteFragment extends Fragment {
 
     public static NoteFragment newInstance() {
         NoteFragment fragment = new NoteFragment();
-
         return fragment;
     }
 
@@ -32,6 +31,9 @@ public class NoteFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initView(view);
+    }
+    private void initView (View view){
         String[] notes = getResources().getStringArray(R.array.notes);
         for (int i = 0; i < notes.length; i++) {
             String noteName = notes[i];
@@ -45,16 +47,21 @@ public class NoteFragment extends Fragment {
                 public void onClick(View view) {
                     Notes notes = new Notes(finalI);
                     if (getResources().getConfiguration().orientation== Configuration.ORIENTATION_LANDSCAPE){
-                        NoteContentFragment noteContentFragment = NoteContentFragment.newInstance(notes);
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.note_content,noteContentFragment).commit();
-
-                    }else {
-                        NoteContentFragment noteContentFragment = NoteContentFragment.newInstance(notes);
-                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes,noteContentFragment).addToBackStack("").commit();
+                        ShowLand(notes);
+                    }else {ShowPort(notes);
                     }
 
                 }
             });
         }
+    }
+    private void ShowLand (Notes notes){
+        NoteContentFragment noteContentFragment = NoteContentFragment.newInstance(notes);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.note_content,noteContentFragment).commit();
+
+    }
+    private void ShowPort (Notes notes){
+        NoteContentFragment noteContentFragment = NoteContentFragment.newInstance(notes);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.notes,noteContentFragment).addToBackStack("").commit();
     }
 }
