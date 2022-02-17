@@ -3,13 +3,11 @@ package com.michailkuzhlev.lesson_6;
 import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,15 +17,15 @@ import androidx.fragment.app.FragmentManager;
 import java.util.List;
 
 
-public class NoteContentFragment extends Fragment {
+public class NoteContentChildFragment extends Fragment {
 
 
     public static final String ARG_NOTES = "notes";
     private Notes notes;
 
 
-    public static NoteContentFragment newInstance(Notes notes) {
-        NoteContentFragment fragment = new NoteContentFragment();
+    public static NoteContentChildFragment newInstance(Notes notes) {
+        NoteContentChildFragment fragment = new NoteContentChildFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable(ARG_NOTES, notes);
         fragment.setArguments(bundle);
@@ -39,7 +37,7 @@ public class NoteContentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_note_content, container, false);
+        return inflater.inflate(R.layout.fragment_note_content_child, container, false);
     }
 
     @SuppressLint("ResourceType")
@@ -48,22 +46,23 @@ public class NoteContentFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         assert getArguments() != null;
         notes = getArguments().getParcelable(ARG_NOTES);
-        getChildFragmentManager().beginTransaction().replace(R.id.container_child,NoteContentChildFragment.newInstance(notes)).commit();
+        ImageView imageView = view.findViewById(R.id.imageView);
+        TypedArray images = getResources().obtainTypedArray(R.array.notes_content);
+        imageView.setImageResource(images.getResourceId(notes.getIndex(),R.drawable.note1));
 
-
-        ((Button)view.findViewById(R.id.btn_Back)).setOnClickListener(new View.OnClickListener() {
+        /*((Button)view.findViewById(R.id.btn_Back)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 requireActivity().getSupportFragmentManager().popBackStack();
                 FragmentManager fragmentManager =  requireActivity().getSupportFragmentManager();
                 List<Fragment>list=fragmentManager.getFragments();
                 for (Fragment one:list) {
-                    if (one instanceof NoteContentFragment){
+                    if (one instanceof NoteContentChildFragment){
                         requireActivity().getSupportFragmentManager().beginTransaction().remove(one).commit();
                     }
 
                 }
             }
-        });
+        });*/
     }
 }

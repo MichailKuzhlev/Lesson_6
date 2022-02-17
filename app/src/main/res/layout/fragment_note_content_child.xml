@@ -8,18 +8,11 @@
     android:orientation="vertical"
     tools:context=".NoteFragment">
 
-    <FrameLayout
-        android:id="@+id/container_child"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_Back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/back" />
 
 
 </LinearLayout>
