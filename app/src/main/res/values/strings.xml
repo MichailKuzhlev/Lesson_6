@@ -7,6 +7,9 @@
     <string name="next_note">next note</string>
     <string name="about">about</string>
     <string name="exit">exit</string>
+    <string name="fragment_activity_menu">Fragment activity Menu</string>
+    <string name="add_new_note">Add new Note</string>
+    <string name="click_on_the_button">click on the button</string>
 
 
 </resources>

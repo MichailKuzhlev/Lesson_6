@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case (R.id.action_about):{
+                getSupportFragmentManager().beginTransaction().replace(R.id.notes,new AboutFragment()).addToBackStack("").commit();
                 return false;
             }
             case (R.id.action_exit):{
