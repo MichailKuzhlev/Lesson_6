@@ -4,10 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -50,18 +52,29 @@ public class NoteContentChildFragment extends Fragment {
         TypedArray images = getResources().obtainTypedArray(R.array.notes_content);
         imageView.setImageResource(images.getResourceId(notes.getIndex(),R.drawable.note1));
 
-        /*((Button)view.findViewById(R.id.btn_Back)).setOnClickListener(new View.OnClickListener() {
+       /* view.findViewById(R.id.btn_anchor).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public void onClick(View view) {
-                requireActivity().getSupportFragmentManager().popBackStack();
-                FragmentManager fragmentManager =  requireActivity().getSupportFragmentManager();
-                List<Fragment>list=fragmentManager.getFragments();
-                for (Fragment one:list) {
-                    if (one instanceof NoteContentChildFragment){
-                        requireActivity().getSupportFragmentManager().beginTransaction().remove(one).commit();
+            public boolean onLongClick(View view) {
+                PopupMenu popupMenu = new PopupMenu(requireContext(), view);
+                requireActivity().getMenuInflater().inflate(R.menu.popup, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case (R.id.action_popup_clear): {
+                                imageView.setImageAlpha(0);
+                                return false;
+                            }
+                            case (R.id.action_popup_exit): {
+                                ;
+                                return false;
+                            }
+                        }
+                        return false;
                     }
-
-                }
+                });
+                popupMenu.show();
+                return false;
             }
         });*/
     }

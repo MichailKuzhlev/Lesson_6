@@ -8,21 +8,25 @@
     android:orientation="vertical"
     tools:context=".NoteFragment">
 
+
+    <FrameLayout
+        android:id="@+id/container_child"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="0dp" />
+        android:layout_gravity="center" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/next_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/next_note"
-        android:padding="0dp"
-        />
+        android:text="@string/next_note" />
 
 
 </LinearLayout>

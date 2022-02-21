@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,16 +42,16 @@ public class NoteContentFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.my_fragment_notes,menu);
+        inflater.inflate(R.menu.my_fragment_notes, menu);
         menu.findItem(R.id.action_about).setVisible(false);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case (R.id.action_toast):{
-                Toast.makeText(requireContext()," Вы нажали на кнопку, она бесполезная:)",Toast.LENGTH_LONG).show();
+        switch (item.getItemId()) {
+            case (R.id.action_toast): {
+                Toast.makeText(requireContext(), " Вы нажали на кнопку, она бесполезная:)", Toast.LENGTH_LONG).show();
                 return false;
             }
         }
@@ -72,22 +73,22 @@ public class NoteContentFragment extends Fragment {
         setHasOptionsMenu(true);
         assert getArguments() != null;
         notes = getArguments().getParcelable(ARG_NOTES);
-        getChildFragmentManager().beginTransaction().replace(R.id.container_child,NoteContentChildFragment.newInstance(notes)).commit();
-
-
-        ((Button)view.findViewById(R.id.btn_Back)).setOnClickListener(new View.OnClickListener() {
+        getChildFragmentManager().beginTransaction().replace(R.id.container_child, NoteContentChildFragment.newInstance(notes)).commit();
+        ((Button) view.findViewById(R.id.btn_Back)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 requireActivity().getSupportFragmentManager().popBackStack();
-                FragmentManager fragmentManager =  requireActivity().getSupportFragmentManager();
-                List<Fragment>list=fragmentManager.getFragments();
-                for (Fragment one:list) {
-                    if (one instanceof NoteContentFragment){
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                List<Fragment> list = fragmentManager.getFragments();
+                for (Fragment one : list) {
+                    if (one instanceof NoteContentFragment) {
                         requireActivity().getSupportFragmentManager().beginTransaction().remove(one).commit();
                     }
 
                 }
             }
         });
+
+
     }
 }

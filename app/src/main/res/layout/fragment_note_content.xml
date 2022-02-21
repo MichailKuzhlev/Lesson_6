@@ -9,10 +9,11 @@
     tools:context=".NoteFragment">
 
     <FrameLayout
+
         android:id="@+id/container_child"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="bottom|center"
         android:padding="0dp" />
 
     <com.google.android.material.button.MaterialButton
@@ -22,6 +23,13 @@
         android:layout_gravity="center"
         android:padding="0dp"
         android:text="@string/back" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_anchor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="0dp"
+        android:text="@string/button_popup" />
 
 
 </LinearLayout>

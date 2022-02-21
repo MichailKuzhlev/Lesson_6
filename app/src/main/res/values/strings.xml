@@ -10,6 +10,8 @@
     <string name="fragment_activity_menu">Fragment activity Menu</string>
     <string name="add_new_note">Add new Note</string>
     <string name="click_on_the_button">click on the button</string>
+    <string name="clear">Clear</string>
+    <string name="button_popup">button popup</string>
 
 
 </resources>
