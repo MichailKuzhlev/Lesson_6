@@ -1,10 +1,14 @@
 package com.michailkuzhlev.lesson_6;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Switch;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +27,27 @@ public class MainActivity extends AppCompatActivity {
              }
         }
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.my_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case (R.id.action_about):{
+                return false;
+            }
+            case (R.id.action_exit):{
+                finish();
+                return false;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     protected void onResume(){
         super.onResume();
         Fragment bacStackFragment = (Fragment) getSupportFragmentManager().findFragmentById(R.id.notes);
