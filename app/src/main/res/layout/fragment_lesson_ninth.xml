@@ -7,9 +7,11 @@
     android:layout_gravity="center"
     android:orientation="vertical"
     tools:context=".NoteFragment">
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnToast"
+        android:text="@string/view_toast"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Switch;
 
+import Lesson9.LessonNinthFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,8 +21,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
-            NoteFragment noteFragment = NoteFragment.newInstance();
-            getSupportFragmentManager().beginTransaction().replace(R.id.notes, noteFragment).commit();
+            /*NoteFragment noteFragment = NoteFragment.newInstance();
+            getSupportFragmentManager().beginTransaction().replace(R.id.notes, noteFragment).commit();*/
+
+            LessonNinthFragment lessonNinthFragment = LessonNinthFragment.newInstance();
+            getSupportFragmentManager().beginTransaction().replace(R.id.notes, lessonNinthFragment).commit();
+
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 Notes defaultNotes = new Notes(0);
                 NoteContentFragment noteContentFragment = NoteContentFragment.newInstance(defaultNotes);
