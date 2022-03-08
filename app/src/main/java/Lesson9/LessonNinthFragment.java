@@ -47,6 +47,7 @@ public class LessonNinthFragment extends Fragment {
         view.findViewById(R.id.btnAlertDialogCustom).setOnClickListener(view1 -> AlertDialogCustom());
         view.findViewById(R.id.btnDialogFragment).setOnClickListener(view1 -> DialogFragment());
         view.findViewById(R.id.btnDialogFragmentCustom).setOnClickListener(view1 -> DialogFragmentCustom());
+        view.findViewById(R.id.btnBottomSheetDialogFragment).setOnClickListener(view1 -> BottomSheetDialogFragment());
 
     }
 
@@ -103,6 +104,9 @@ public class LessonNinthFragment extends Fragment {
     }
     void DialogFragmentCustom(){
         new MyDialogFragmentCustom().show(getActivity().getSupportFragmentManager(),"123");
+    }
+    void BottomSheetDialogFragment(){
+        new MyBottomSheetDialogFragment().show(getActivity().getSupportFragmentManager(),"123");
     }
 
 }
