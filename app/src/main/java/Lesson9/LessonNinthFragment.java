@@ -1,16 +1,23 @@
 package Lesson9;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -48,6 +55,7 @@ public class LessonNinthFragment extends Fragment {
         view.findViewById(R.id.btnDialogFragment).setOnClickListener(view1 -> DialogFragment());
         view.findViewById(R.id.btnDialogFragmentCustom).setOnClickListener(view1 -> DialogFragmentCustom());
         view.findViewById(R.id.btnBottomSheetDialogFragment).setOnClickListener(view1 -> BottomSheetDialogFragment());
+        view.findViewById(R.id.btnPushNotification).setOnClickListener(view1 -> PushNotification());
 
 
     }
@@ -100,17 +108,32 @@ public class LessonNinthFragment extends Fragment {
     }
 
     void DialogFragment() {
-        new MyDialogFragment().show(getActivity().getSupportFragmentManager(),"123");
+        new MyDialogFragment().show(getActivity().getSupportFragmentManager(), "123");
 
     }
-    void DialogFragmentCustom(){
-        new MyDialogFragmentCustom().show(getActivity().getSupportFragmentManager(),"123");
-    }
-    void BottomSheetDialogFragment(){
-        new MyBottomSheetDialogFragment().show(getActivity().getSupportFragmentManager(),"123");
+
+    void DialogFragmentCustom() {
+        new MyDialogFragmentCustom().show(getActivity().getSupportFragmentManager(), "123");
     }
 
+    void BottomSheetDialogFragment() {
+        new MyBottomSheetDialogFragment().show(getActivity().getSupportFragmentManager(), "123");
+    }
+    public final String CHANEL_ID = "1";
     void PushNotification() {
+        NotificationManager notificationManager = (NotificationManager) requireActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = new NotificationChannel(CHANEL_ID, "Chanel1", NotificationManager.IMPORTANCE_HIGH);
+            notificationChannel.setDescription("Это канал для кто бы знал я не придумал");
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+        Notification notification = new NotificationCompat.Builder(requireContext(),CHANEL_ID)
+                .setContentTitle("Это заголовок пуша")
+                .setContentText("Это текст пуша")
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setPriority(Notification.PRIORITY_HIGH)
+                .build();
+        notificationManager.notify(1,notification);
 
     }
 
