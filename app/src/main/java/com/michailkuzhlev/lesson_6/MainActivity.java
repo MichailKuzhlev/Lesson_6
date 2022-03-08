@@ -10,11 +10,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import Lesson9.LessonNinthFragment;
 
 public class MainActivity extends AppCompatActivity {
-
+public void onDialogResult(String message){
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+}
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
+import com.michailkuzhlev.lesson_6.MainActivity;
 import com.michailkuzhlev.lesson_6.R;
 
 public class MyDialogFragmentCustom extends DialogFragment {
@@ -25,12 +26,10 @@ public class MyDialogFragmentCustom extends DialogFragment {
                     .show();
             view.findViewById(R.id.btnCustomView).setOnClickListener(view1 -> {
                 EditText editText = view.findViewById(R.id.ediTextCustomView);
-                showToast(editText.getText().toString());
+                ((MainActivity) getActivity()).onDialogResult(editText.getText().toString());
                 alertDialog.dismiss();
             });
         return alertDialog;
     }
-    void showToast(String message) {
-        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show();
-    }
+
 }
