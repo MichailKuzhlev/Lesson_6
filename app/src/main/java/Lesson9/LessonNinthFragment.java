@@ -21,6 +21,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.michailkuzhlev.lesson_6.MainActivity;
 import com.michailkuzhlev.lesson_6.NoteFragment;
 import com.michailkuzhlev.lesson_6.Notes;
 import com.michailkuzhlev.lesson_6.R;
@@ -31,6 +32,7 @@ public class LessonNinthFragment extends Fragment {
         LessonNinthFragment fragment = new LessonNinthFragment();
         return fragment;
     }
+
 
     @Nullable
     @Override
@@ -73,11 +75,14 @@ public class LessonNinthFragment extends Fragment {
     }
 
     void SnackBarWithAction(View view) {
-        Snackbar.make(view, "SnackBarWithAction работает", Snackbar.LENGTH_LONG).setAction(
+
+       {Snackbar.make(view, "SnackBarWithAction работает", Snackbar.LENGTH_LONG).setAction(
                 "Попробовать еще раз", view1 -> {
                     showToast();
                 }
-        ).show();
+        ).show();}
+
+
     }
 
     void AlertDialog() {
@@ -88,8 +93,8 @@ public class LessonNinthFragment extends Fragment {
                     showToast("Да");
                 }).setNegativeButton("Нет", (dialogInterface, i) -> {
             showToast("Нет");
-        }).setNeutralButton("ай До Но", (dialogInterface, i) -> {
-            showToast("ай До Но");
+        }).setNeutralButton("Отмена", (dialogInterface, i) -> {
+            showToast("Отмена");
         }).show();
     }
 
@@ -126,6 +131,7 @@ public class LessonNinthFragment extends Fragment {
             NotificationChannel notificationChannel = new NotificationChannel(CHANEL_ID, "Chanel1", NotificationManager.IMPORTANCE_HIGH);
             notificationChannel.setDescription("Это канал для кто бы знал я не придумал");
             notificationManager.createNotificationChannel(notificationChannel);
+
         }
         Notification notification = new NotificationCompat.Builder(requireContext(),CHANEL_ID)
                 .setContentTitle("Это заголовок пуша")
