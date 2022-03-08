@@ -16,6 +16,8 @@
     <string name="showSnackbar">Показать SnackBar</string>
     <string name="ShowSnackBarWithAction">показать SnackBarWithAction</string>
     <string name="ShowAlertDialog">показать AlertDialog</string>
+    <string name="showAlertDialogCustom">показать ShowAlertDialogCustom</string>
+    <string name="show_toast">Show Toast</string>
 
 
 </resources>

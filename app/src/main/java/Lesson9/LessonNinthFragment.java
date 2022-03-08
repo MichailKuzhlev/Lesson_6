@@ -43,6 +43,7 @@ public class LessonNinthFragment extends Fragment {
         view.findViewById(R.id.btnSnackBar).setOnClickListener(view1 -> showSnackBar(view));
         view.findViewById(R.id.btnSnackBarWithAction).setOnClickListener(view1 -> SnackBarWithAction(view));
         view.findViewById(R.id.btnAlertDialog).setOnClickListener(view1 -> AlertDialog());
+        view.findViewById(R.id.btnAlertDialogCustom).setOnClickListener(view1 -> AlertDialogCustom());
 
     }
 
@@ -67,6 +68,19 @@ public class LessonNinthFragment extends Fragment {
     }
 
     void AlertDialog() {
+        new AlertDialog.Builder(requireContext())
+                .setTitle("AlertDialog")
+                .setMessage("AlertDialog message")
+                .setPositiveButton("Да", (dialogInterface, i) -> {
+                    showToast("Да");
+                }).setNegativeButton("Нет", (dialogInterface, i) -> {
+            showToast("Нет");
+        }).setNeutralButton("ай До Но", (dialogInterface, i) -> {
+            showToast("ай До Но");
+        }).show();
+    }
+
+    void AlertDialogCustom() {
         new AlertDialog.Builder(requireContext())
                 .setTitle("AlertDialog")
                 .setMessage("AlertDialog message")
