@@ -14,6 +14,7 @@
     <string name="button_popup">button popup</string>
     <string name="showToast">Показать Toast</string>
     <string name="showSnackbar">Показать SnackBar</string>
+    <string name="ShowSnackBarWithAction">показать SnackBarWithAction</string>
 
 
 </resources>
