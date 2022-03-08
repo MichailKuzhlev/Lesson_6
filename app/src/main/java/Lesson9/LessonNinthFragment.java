@@ -49,6 +49,7 @@ public class LessonNinthFragment extends Fragment {
     void showToast() {
         Toast.makeText(requireContext(), "Toast работает", Toast.LENGTH_LONG).show();
     }
+
     void showToast(String message) {
         Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show();
     }
@@ -64,17 +65,18 @@ public class LessonNinthFragment extends Fragment {
                 }
         ).show();
     }
+
     void AlertDialog() {
-       new AlertDialog.Builder(requireContext())
-               .setTitle("AlertDialog")
-               .setMessage("AlertDialog message")
-               .setPositiveButton("Да", (dialogInterface, i) -> {
-                showToast("Да");
-               }).setNegativeButton("Нет", (dialogInterface, i) -> {
-                   showToast("Нет");
-               }).setNeutralButton("ай До Но", (dialogInterface, i) -> {
-           showToast("ай До Но");
-               }).show();
+        new AlertDialog.Builder(requireContext())
+                .setTitle("AlertDialog")
+                .setMessage("AlertDialog message")
+                .setPositiveButton("Да", (dialogInterface, i) -> {
+                    showToast("Да");
+                }).setNegativeButton("Нет", (dialogInterface, i) -> {
+            showToast("Нет");
+        }).setNeutralButton("ай До Но", (dialogInterface, i) -> {
+            showToast("ай До Но");
+        }).show();
     }
 
 }
