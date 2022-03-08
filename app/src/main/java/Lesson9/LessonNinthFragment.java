@@ -1,5 +1,6 @@
 package Lesson9;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -40,10 +42,15 @@ public class LessonNinthFragment extends Fragment {
         view.findViewById(R.id.btnToast).setOnClickListener(view1 -> showToast());
         view.findViewById(R.id.btnSnackBar).setOnClickListener(view1 -> showSnackBar(view));
         view.findViewById(R.id.btnSnackBarWithAction).setOnClickListener(view1 -> SnackBarWithAction(view));
+        view.findViewById(R.id.btnAlertDialog).setOnClickListener(view1 -> AlertDialog());
+
     }
 
     void showToast() {
         Toast.makeText(requireContext(), "Toast работает", Toast.LENGTH_LONG).show();
+    }
+    void showToast(String message) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show();
     }
 
     void showSnackBar(View view) {
@@ -57,4 +64,17 @@ public class LessonNinthFragment extends Fragment {
                 }
         ).show();
     }
+    void AlertDialog() {
+       new AlertDialog.Builder(requireContext())
+               .setTitle("AlertDialog")
+               .setMessage("AlertDialog message")
+               .setPositiveButton("Да", (dialogInterface, i) -> {
+                showToast("Да");
+               }).setNegativeButton("Нет", (dialogInterface, i) -> {
+                   showToast("Нет");
+               }).setNeutralButton("ай До Но", (dialogInterface, i) -> {
+           showToast("ай До Но");
+               }).show();
+    }
+
 }
