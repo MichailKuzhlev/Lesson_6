@@ -5,12 +5,12 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/ediText_custom_view"
+        android:id="@+id/ediTextCustomView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_custom_view"
+        android:id="@+id/btnCustomView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

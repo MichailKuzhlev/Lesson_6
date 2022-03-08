@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -81,16 +82,17 @@ public class LessonNinthFragment extends Fragment {
     }
 
     void AlertDialogCustom() {
-        new AlertDialog.Builder(requireContext())
+        View view = getLayoutInflater().inflate(R.layout.dialog_custom, null);
+        AlertDialog alertDialog = new AlertDialog.Builder(requireContext())
                 .setTitle("AlertDialog")
                 .setMessage("AlertDialog message")
-                .setPositiveButton("Да", (dialogInterface, i) -> {
-                    showToast("Да");
-                }).setNegativeButton("Нет", (dialogInterface, i) -> {
-            showToast("Нет");
-        }).setNeutralButton("ай До Но", (dialogInterface, i) -> {
-            showToast("ай До Но");
-        }).show();
+                .setView(view)
+                .show();
+        view.findViewById(R.id.btnCustomView).setOnClickListener(view1 -> {
+            EditText editText = view.findViewById(R.id.ediTextCustomView);
+            showToast(editText.getText().toString());
+            alertDialog.dismiss();
+        });
     }
 
 }
