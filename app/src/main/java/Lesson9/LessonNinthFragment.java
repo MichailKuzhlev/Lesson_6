@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.michailkuzhlev.lesson_6.NoteFragment;
 import com.michailkuzhlev.lesson_6.Notes;
 import com.michailkuzhlev.lesson_6.R;
@@ -30,9 +31,21 @@ public class LessonNinthFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.btnToast).setOnClickListener(view1 -> showToast());
+
+
+        initView(view);
     }
-    void showToast(){
-        Toast.makeText(requireContext(),"Toast работает",Toast.LENGTH_LONG).show();
+
+    void initView(View view) {
+        view.findViewById(R.id.btnToast).setOnClickListener(view1 -> showToast());
+        view.findViewById(R.id.btnSnackBar).setOnClickListener(view1 -> showSnackBar(view));
+    }
+
+    void showToast() {
+        Toast.makeText(requireContext(), "Toast работает", Toast.LENGTH_LONG).show();
+    }
+
+    void showSnackBar(View view) {
+        Snackbar.make(view, "Snack работает", Snackbar.LENGTH_LONG).show();
     }
 }

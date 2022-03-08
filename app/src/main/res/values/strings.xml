@@ -12,7 +12,8 @@
     <string name="click_on_the_button">click on the button</string>
     <string name="clear">Clear</string>
     <string name="button_popup">button popup</string>
-    <string name="view_toast">Показать Toast</string>
+    <string name="showToast">Показать Toast</string>
+    <string name="showSnackbar">Показать SnackBar</string>
 
 
 </resources>

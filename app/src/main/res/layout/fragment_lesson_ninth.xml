@@ -10,7 +10,12 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnToast"
-        android:text="@string/view_toast"
+        android:text="@string/showToast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSnackBar"
+        android:text="@string/showSnackbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
