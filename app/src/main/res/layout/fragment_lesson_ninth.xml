@@ -45,7 +45,12 @@
         android:layout_height="wrap_content" />
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnBottomSheetDialogFragment"
-        android:text="Показать BottomSheetDialogFragment"
+        android:text="@string/BottomSheetDialogFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPushNotification"
+        android:text="@string/PushNotification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

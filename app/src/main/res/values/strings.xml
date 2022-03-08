@@ -20,6 +20,8 @@
     <string name="show_toast">Show Toast</string>
     <string name="DialogFragment">Показать DialogFragment</string>
     <string name="DialogFragmentCustom">Показать DialogFragmentCustom</string>
+    <string name="PushNotification">Показать PushNotification</string>
+    <string name="BottomSheetDialogFragment">Показать BottomSheetDialogFragment</string>
 
 
 </resources>

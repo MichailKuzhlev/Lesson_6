@@ -49,6 +49,7 @@ public class LessonNinthFragment extends Fragment {
         view.findViewById(R.id.btnDialogFragmentCustom).setOnClickListener(view1 -> DialogFragmentCustom());
         view.findViewById(R.id.btnBottomSheetDialogFragment).setOnClickListener(view1 -> BottomSheetDialogFragment());
 
+
     }
 
     void showToast() {
@@ -107,6 +108,10 @@ public class LessonNinthFragment extends Fragment {
     }
     void BottomSheetDialogFragment(){
         new MyBottomSheetDialogFragment().show(getActivity().getSupportFragmentManager(),"123");
+    }
+
+    void PushNotification() {
+
     }
 
 }
