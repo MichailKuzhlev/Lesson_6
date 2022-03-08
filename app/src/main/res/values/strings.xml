@@ -18,6 +18,7 @@
     <string name="ShowAlertDialog">показать AlertDialog</string>
     <string name="showAlertDialogCustom">показать ShowAlertDialogCustom</string>
     <string name="show_toast">Show Toast</string>
+    <string name="DialogFragment">Показать DialogFragment</string>
 
 
 </resources>

@@ -45,6 +45,7 @@ public class LessonNinthFragment extends Fragment {
         view.findViewById(R.id.btnSnackBarWithAction).setOnClickListener(view1 -> SnackBarWithAction(view));
         view.findViewById(R.id.btnAlertDialog).setOnClickListener(view1 -> AlertDialog());
         view.findViewById(R.id.btnAlertDialogCustom).setOnClickListener(view1 -> AlertDialogCustom());
+        view.findViewById(R.id.btnDialogFragment).setOnClickListener(view1 -> DialogFragment());
 
     }
 
@@ -93,6 +94,11 @@ public class LessonNinthFragment extends Fragment {
             showToast(editText.getText().toString());
             alertDialog.dismiss();
         });
+    }
+
+    void DialogFragment() {
+        new MyDialogFragment().show(getActivity().getSupportFragmentManager(),"123");
+
     }
 
 }
