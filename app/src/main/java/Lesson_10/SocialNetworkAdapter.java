@@ -35,7 +35,7 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<RecyclerView.View
             TextView textView = (TextView) itemView;
         }
         public void bindontentithItemView(String content){
-            textView.setText(content);//safasf
+            textView.setText(content);//safasfапрап
         }
     }
 }
