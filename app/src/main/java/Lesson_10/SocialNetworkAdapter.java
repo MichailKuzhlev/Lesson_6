@@ -1,5 +1,6 @@
 package Lesson_10;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -7,18 +8,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class SocialNetworkAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+import com.michailkuzhlev.lesson_6.R;
+
+public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdapter.MyViewHolder> {
 
     private String[] data;
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        return new MyViewHolder( layoutInflater.inflate(R.layout.fragment_social_network_recycler_item,parent,false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.bindContentWithLayout(data[position]);
 
     }
 
@@ -34,8 +39,8 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<RecyclerView.View
             super(itemView);
             TextView textView = (TextView) itemView;
         }
-        public void bindontentithItemView(String content){
-            textView.setText(content);//
+        public void bindContentWithLayout(String content){
+            textView.setText(content);
         }
     }
 }
