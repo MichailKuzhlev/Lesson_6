@@ -18,7 +18,7 @@ import com.michailkuzhlev.lesson_6.R;
 public class SocialNetworkFragment extends Fragment {
 
 
-    public SocialNetworkFragment newInstance() {
+    public static SocialNetworkFragment newInstance() {
         SocialNetworkFragment fragment = new SocialNetworkFragment();
         return fragment;
     }

@@ -15,6 +15,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import Lesson9.LessonNinthFragment;
+import Lesson_10.SocialNetworkFragment;
 
 public class MainActivity extends AppCompatActivity {
 public void onDialogResult(String message){
@@ -24,13 +25,14 @@ public void onDialogResult(String message){
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         if (savedInstanceState == null) {
-            /*NoteFragment noteFragment = NoteFragment.newInstance();
-            getSupportFragmentManager().beginTransaction().replace(R.id.notes, noteFragment).commit();*/
 
-            LessonNinthFragment lessonNinthFragment = LessonNinthFragment.newInstance();
-            getSupportFragmentManager().beginTransaction().replace(R.id.notes, lessonNinthFragment).commit();
+            /*Lesson_8();*/
+            /*Lesson_9();*/
+             Lesson_10();
+
+            SocialNetworkFragment socialNetworkFragment = SocialNetworkFragment.newInstance();
+            getSupportFragmentManager().beginTransaction().replace(R.id.notes,socialNetworkFragment).commit();
 
             if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
                 Notes defaultNotes = new Notes(0);
@@ -82,4 +84,18 @@ public void onDialogResult(String message){
             onBackPressed();
         }
     }
+    void Lesson_8(){
+        NoteFragment noteFragment = NoteFragment.newInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.notes, noteFragment).commit();
+    }
+    void Lesson_9(){
+        LessonNinthFragment lessonNinthFragment = LessonNinthFragment.newInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.notes, lessonNinthFragment).commit();
+    }
+    void Lesson_10(){
+        SocialNetworkFragment socialNetworkFragment = SocialNetworkFragment.newInstance();
+        getSupportFragmentManager().beginTransaction().replace(R.id.notes,socialNetworkFragment).commit();
+    }
+
+
 }
