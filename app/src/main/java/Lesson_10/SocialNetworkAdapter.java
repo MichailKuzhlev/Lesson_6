@@ -16,6 +16,7 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
 
     public void setData(String[] data) {
         this.data = data;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -35,6 +36,8 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
     public int getItemCount() {
         return data.length;
     }
+
+
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         private TextView textView;
