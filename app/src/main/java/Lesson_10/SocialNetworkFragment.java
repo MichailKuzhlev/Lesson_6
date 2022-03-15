@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.michailkuzhlev.lesson_6.R;
 
 
-public class SocialNetworkFragment extends Fragment {
+public class SocialNetworkFragment extends Fragment implements onItemClickListener {
 
 
     public static SocialNetworkFragment newInstance() {
@@ -42,5 +42,10 @@ public class SocialNetworkFragment extends Fragment {
         SocialNetworkAdapter socialNetworkAdapter = new SocialNetworkAdapter();
         recyclerView.setAdapter(socialNetworkAdapter);
         socialNetworkAdapter.setData(data);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+
     }
 }
