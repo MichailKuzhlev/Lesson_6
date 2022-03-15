@@ -44,7 +44,7 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            TextView textView = (TextView) itemView;
+            textView = (TextView) itemView;
         }
         public void bindContentWithLayout(String content){
             textView.setText(content);
